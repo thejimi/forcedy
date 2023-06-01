@@ -1,0 +1,29 @@
+{
+  "name": "forcedy",
+  "version": "1.0.0",
+  "description": "An app that forces you to not procrastinate.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thejimi/forcedy.git"
+  },
+  "keywords": [
+    "productivity",
+    "procrastination",
+    "app",
+    "study"
+  ],
+  "author": "thejimi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thejimi/forcedy/issues"
+  },
+  "homepage": "https://github.com/thejimi/forcedy#readme",
+  "dependencies": {
+    "electron": "^25.0.1",
+    "fs": "^0.0.1-security"
+  }
+}
