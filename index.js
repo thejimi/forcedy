@@ -25,8 +25,10 @@ function welcomeWindow() {
    win = new BrowserWindow({
     width: 1920, 
     height: 1080,
+    autoHideMenuBar: true,
     webPreferences: {
         nodeIntegration: true,
+        contextIsolation: false,
     }
   }) 
    win.loadURL(url.format ({ 
@@ -42,6 +44,7 @@ function mainWindow() {
     win = new BrowserWindow({
         width: 1920, 
         height: 1080,
+        autoHideMenuBar: true,
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
