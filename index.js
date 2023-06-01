@@ -22,9 +22,15 @@ function log(type, func, message){
 }
 
 function welcomeWindow() { 
-   win = new BrowserWindow({width: 800, height: 600}) 
+   win = new BrowserWindow({
+    width: 1920, 
+    height: 1080,
+    webPreferences: {
+        nodeIntegration: true,
+    }
+  }) 
    win.loadURL(url.format ({ 
-      pathname: path.join(__dirname, '/renders/setup/WelcomePage.html'), 
+      pathname: path.join(__dirname, '/src/setup/WelcomePage.html'), 
       protocol: 'file:', 
       slashes: true 
    })) 
@@ -33,9 +39,16 @@ function welcomeWindow() {
 }
 
 function mainWindow() { 
-    win = new BrowserWindow({width: 800, height: 600}) 
+    win = new BrowserWindow({
+        width: 1920, 
+        height: 1080,
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false,
+        }
+      }) 
     win.loadURL(url.format ({ 
-       pathname: path.join(__dirname, '/renders/main/Landing.html'), 
+       pathname: path.join(__dirname, '/src/main/Landing.html'), 
        protocol: 'file:', 
        slashes: true 
     })) 
@@ -44,12 +57,12 @@ function mainWindow() {
 }
 
 //Check if the application was already ran
-const unlocked = require('./localData/unlocked.json')
+const unlocked = require('./src/localData/unlocked.json')
 if(unlocked.appRan === false){
     app.on('ready', welcomeWindow)
     log(`success`, `windowCreation`, `welcomeWindow function ran`)
 
-    const fileName = './localData/unlocked.json';
+    const fileName = './src/localData/unlocked.json';
     const file = require(fileName);
     
     file.appRan = true
