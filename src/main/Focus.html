@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forcedy</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles/main.css"> 
+    <link rel="stylesheet" href="../styles/cards.css">
+</head>
+<body>
+    <div id="content">
+        <h1 onclick="click_home()" style="text-align:center;cursor:pointer"><i style="color:#4e4ec0" class="fa-solid fa-moon"></i>&nbsp;&nbsp;Focus</h1>
+
+        <main class="page-content">
+            <div style="background-image:url('image-url')" class="card">
+                <div class="content">
+                    <h2 class="title">Test Focus</h2>
+                    <p class="copy">This is a test focus button.</p><button class="btn">Set focus</button>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+<script>
+    setTimeout(() => {
+        document.getElementById("tip").classList.add("show")
+    }, 1000);
+
+    function click_home(){
+      var content = document.getElementById("content")
+      content.classList.add("hidden")
+      setTimeout(() => {
+        window.location.href = ("./Landing.html")
+      }, 200);
+    }
+</script>
+</html>

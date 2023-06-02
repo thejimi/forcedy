@@ -8,20 +8,20 @@
     <link rel="stylesheet" href="../styles/main.css"> 
 </head>
 <body onload="randomMotivation(); setName()">
-    <div class="centered">
+    <div id="content" class="centered prevent-select">
         <h1 style="margin-bottom:0px" id="WelcomeBackText">Welcome, X.</h1>
         <p class="underTitle" style="margin-top:3px; margin-bottom:30px" id="RandomMotivation">&nbsp;</p>
 
-        <button>
+        <button onclick="click_setfocus()">
             <span><i class="fa-solid fa-moon"></i>&nbsp;&nbsp;Set Focus</span>
-            <svg viewBox="-5 -5 110 110" preserveAspectRatio="none" aria-hidden="true">
+            <svg style="fill:#4e4ec0" viewBox="-5 -5 110 110" preserveAspectRatio="none" aria-hidden="true">
               <path d="M0,0 C0,0 100,0 100,0 C100,0 100,100 100,100 C100,100 0,100 0,100 C0,100 0,0 0,0"/>
             </svg>
         </button>
 
         <button>
             <span><i class="fa-solid fa-heart-pulse"></i>&nbsp;&nbsp;Health Monitor</span>
-            <svg viewBox="-5 -5 110 110" preserveAspectRatio="none" aria-hidden="true">
+            <svg style="fill:#b32121" viewBox="-5 -5 110 110" preserveAspectRatio="none" aria-hidden="true">
               <path d="M0,0 C0,0 100,0 100,0 C100,0 100,100 100,100 C100,100 0,100 0,100 C0,100 0,0 0,0"/>
             </svg>
         </button>
@@ -36,4 +36,13 @@
 </body>
 
 <script src="../scripts/text-management-landing.js"></script>
+<script>
+    function click_setfocus(){
+      var content = document.getElementById("content")
+      content.classList.add("hidden")
+      setTimeout(() => {
+        window.location.href = ("./Focus.html")
+      }, 200);
+    }
+</script>
 </html>
