@@ -1,0 +1,70 @@
+:root {
+    --cooltipz-fontawesome: FontAwesome;
+  }
+  .custom--small {
+    --cooltipz-small: 4.5rem;
+  }
+  .custom--medium {
+    --cooltipz-medium: 8rem;
+  }
+  .custom--large {
+    --cooltipz-large: 12rem;
+  }
+  .custom--revert {
+    --cooltipz-bg-color: #fff;
+    --cooltipz-text-color: #000;
+    --cooltipz-border-color: #fff;
+  }
+  .custom--help {
+    --cooltipz-cursor: help;
+  }
+  .custom--delay {
+    --cooltipz-delay-show: 1s;
+    --cooltipz-delay-hide: 2s;
+  }
+  .custom--far {
+    --cooltipz-slide: 50px;
+  }
+  .custom--still {
+    --cooltipz-slide: 0;
+  }
+  .custom--opposite {
+    --cooltipz-slide: -50px;
+  }
+  .custom--big {
+    --cooltipz-font-size: 1.6rem;
+    --cooltipz-arrow-size: 1rem;
+  }
+  .custom--arrow {
+    --cooltipz-arrow-size: 1.5rem;
+    --cooltipz-border-radius: 0;
+  }
+  .custom--round {
+    --cooltipz-border-radius: 5rem;
+  }
+  .custom--sharp {
+    --cooltipz-border-radius: 0;
+  }
+  .custom--pointy {
+    --cooltipz-arrow-size: 0.82rem;
+    --cooltipz-border-radius: 0;
+  }
+  .custom--slow {
+    --cooltipz-timing: 3s;
+  }
+  .custom--border {
+    --cooltipz-border-color: #f00;
+    --cooltipz-border-width: 2px;
+  }
+  .custom--border-2 {
+    --cooltipz-border-color: #0f0;
+    --cooltipz-border-width: 2px;
+    --cooltipz-border-style: dashed;
+  }
+  .custom--border-3 {
+    --cooltipz-border-color: #000;
+    --cooltipz-border-width: 2px;
+    --cooltipz-text-color: #000;
+    --cooltipz-bg-color: #fff;
+  }
+  
