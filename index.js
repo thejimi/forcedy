@@ -26,6 +26,7 @@ function welcomeWindow() {
     width: 1920, 
     height: 1080,
     autoHideMenuBar: true,
+    backgroundColor:'#151515',
     webPreferences: {
         nodeIntegration: true,
         contextIsolation: false,
@@ -45,6 +46,7 @@ function mainWindow() {
         width: 1920, 
         height: 1080,
         autoHideMenuBar: true,
+        backgroundColor:'#151515',
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
@@ -85,12 +87,19 @@ function startFocus(id) {
 
     const focuses = require('./localData/focuses.json')
     focuses.list.forEach(async (element) => {
-        if(!element.id === id) return log(`return`, `startFocus`, `Looking for element with id '${id}' - Returning for '${element.id}'`);
+        if(element.id === id){
+            log(`success`, `startFocus`, `Found '${id}' in focuses`);
 
-        log(`success`, `startFocus`, `Found '${id}' in focuses`);
-
-        if(element.functions['screen-lockdown'] === true){
-            makeALockedScreen(element)
+            if(element.functions['screen-lockdown'] === true){
+                makeALockedScreen(element)
+            }
+    
+            ipcMain.on('getFocusData', (event, arg) => {
+                event.sender.send('returnFocusData', element)
+            })
+        } else {
+            log('loop', 'startFocus', `Looking for '${id}' - Skipping on '${element.id}'`)
+            return;
         }
     });
 }
@@ -101,9 +110,10 @@ function makeALockedScreen(focus){
         height: 1080,
         fullscreen:true,
         alwaysOnTop:true,
-        closable:false,
+        //closable:false,
         minimizable:false,
         autoHideMenuBar: true,
+        backgroundColor:'#151515',
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
@@ -119,3 +129,9 @@ function makeALockedScreen(focus){
 
     log(`success`, `makeALockedScreen`, `Locked the screen for focus '${focus.id}'`)
 }
+
+const {ipcMain} = require('electron')
+
+ipcMain.on('setFocus', (event, arg) => {
+    startFocus(arg)
+})

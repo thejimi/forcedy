@@ -32,6 +32,13 @@
     </div>
 </body>
 <script>
+     const {ipcRenderer} = require('electron')
+
+    function setFocus(id){
+        ipcRenderer.send('setFocus', id)
+    }
+</script>
+<script>
     setTimeout(() => {
         document.getElementById("tip").classList.add("show")
     }, 1000);

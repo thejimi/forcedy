@@ -9,8 +9,18 @@
 </head>
 <body>
     <div id="content" class="centered prevent-select">
-        <h1 style="margin-bottom:0px" id="WelcomeBackText">Your screen is locked</h1>
-        <p class="underTitle" style="margin-top:3px; margin-bottom:30px" id="RandomMotivation">Focus deeply!</p>
+        <h1 style="margin-bottom:0px;font-size:100px" id="FocusTitle"></h1>
+        <p class="underTitle" style="margin-top:3px; margin-bottom:0px;font-size:50px" id="When"></p>
+        <p class="underTitle" style="margin-top:3px; font-size:30px">Clicking Escape will force quit the session</p>
     </div>
 </body>
+<script>
+    const {ipcRenderer} = require('electron')
+    ipcRenderer.send('getFocusData', 'true')
+
+    ipcRenderer.on('returnFocusData', (event, arg) => {
+        document.getElementById("FocusTitle").innerHTML = `<i style="color:#4e4ec0" class="fa-solid fa-moon"></i>&nbsp;&nbsp;${arg.name}`
+        document.getElementById("When").innerHTML = `The session ends in ${arg.default_time_text}`
+    })
+</script>
 </html>
