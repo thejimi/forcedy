@@ -60,7 +60,8 @@ function mainWindow() {
 }
 
 //Check if the application was already ran
-const unlocked = require('./localData/unlocked.json')
+const unlocked = require('./localData/unlocked.json');
+const { start } = require('repl');
 if(unlocked.appRan === false){
     app.on('ready', welcomeWindow)
     log(`success`, `windowCreation`, `welcomeWindow function ran`)
@@ -77,4 +78,44 @@ if(unlocked.appRan === false){
 } else {
     app.on('ready', mainWindow)
     log(`success`, `windowCreation`, `mainWindow function ran`)
+}
+
+function startFocus(id) { 
+    log(`info`, `startFocus`, `Function started`)
+
+    const focuses = require('./localData/focuses.json')
+    focuses.list.forEach(async (element) => {
+        if(!element.id === id) return log(`return`, `startFocus`, `Looking for element with id '${id}' - Returning for '${element.id}'`);
+
+        log(`success`, `startFocus`, `Found '${id}' in focuses`);
+
+        if(element.functions['screen-lockdown'] === true){
+            makeALockedScreen(element)
+        }
+    });
+}
+
+function makeALockedScreen(focus){
+    win = new BrowserWindow({
+        width: 1920, 
+        height: 1080,
+        fullscreen:true,
+        alwaysOnTop:true,
+        closable:false,
+        minimizable:false,
+        autoHideMenuBar: true,
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false,
+        }
+      }) 
+    win.loadURL(url.format ({ 
+       pathname: path.join(__dirname, '/main/LockedScreen.html'), 
+       protocol: 'file:', 
+       slashes: true 
+    })) 
+
+    win.setFullScreenable(false)
+
+    log(`success`, `makeALockedScreen`, `Locked the screen for focus '${focus.id}'`)
 }

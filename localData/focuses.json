@@ -1,0 +1,16 @@
+{
+    "list":[
+        {
+            "id":"total-lock",
+            "name":"Total Lock",
+            "description":"Locks the system entirely until you turn it's over",
+            "image":"../images/focus/totallock.png",
+            "default-time":3.6e+6,
+            "default-time-text":"1 Hour",
+            "functions":{
+                "screen-lockdown":true,
+                "lock-websites":[]
+            }
+        }
+    ]
+}
