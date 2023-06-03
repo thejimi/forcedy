@@ -32,7 +32,7 @@ function welcomeWindow() {
     }
   }) 
    win.loadURL(url.format ({ 
-      pathname: path.join(__dirname, '/src/setup/WelcomePage.html'), 
+      pathname: path.join(__dirname, '/setup/WelcomePage.html'), 
       protocol: 'file:', 
       slashes: true 
    })) 
@@ -51,7 +51,7 @@ function mainWindow() {
         }
       }) 
     win.loadURL(url.format ({ 
-       pathname: path.join(__dirname, '/src/main/Landing.html'), 
+       pathname: path.join(__dirname, '/main/Landing.html'), 
        protocol: 'file:', 
        slashes: true 
     })) 
@@ -60,12 +60,12 @@ function mainWindow() {
 }
 
 //Check if the application was already ran
-const unlocked = require('./src/localData/unlocked.json')
+const unlocked = require('./localData/unlocked.json')
 if(unlocked.appRan === false){
     app.on('ready', welcomeWindow)
     log(`success`, `windowCreation`, `welcomeWindow function ran`)
 
-    const fileName = './src/localData/unlocked.json';
+    const fileName = './localData/unlocked.json';
     const file = require(fileName);
     
     file.appRan = true
